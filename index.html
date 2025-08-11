@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esports Match Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="container">
+    <h1>🎮 Esports Match Tracker</h1>
+    <p class="muted">Crée, enregistre et partage les scores de tes matchs (Rocket League, LoL, etc.).</p>
+  </header>
+
+  <main class="container grid">
+    <section class="card">
+      <h2>Créer un match</h2>
+      <form id="match-form">
+        <div class="row">
+          <label for="teamA">Équipe A</label>
+          <select id="teamA" required></select>
+        </div>
+        <div class="row">
+          <label for="teamB">Équipe B</label>
+          <select id="teamB" required></select>
+        </div>
+        <div class="row two">
+          <div>
+            <label for="scoreA">Score A</label>
+            <input id="scoreA" type="number" min="0" value="0" required>
+          </div>
+          <div>
+            <label for="scoreB">Score B</label>
+            <input id="scoreB" type="number" min="0" value="0" required>
+          </div>
+        </div>
+        <div class="row">
+          <label for="bo">Format</label>
+          <select id="bo">
+            <option value="1">Bo1</option>
+            <option value="3">Bo3</option>
+            <option value="5" selected>Bo5</option>
+            <option value="7">Bo7</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="notes">Notes</label>
+          <input id="notes" type="text" placeholder="Quart de finale, tournoi X, map, etc.">
+        </div>
+        <button type="submit">➕ Ajouter le match</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Historique</h2>
+      <div id="filters" class="row two">
+        <input id="search" type="search" placeholder="Rechercher (équipe, note)">
+        <select id="filterTeam">
+          <option value="">Toutes les équipes</option>
+        </select>
+      </div>
+      <ul id="match-list" class="list"></ul>
+      <div class="actions">
+        <button id="export">📤 Exporter (JSON)</button>
+        <button id="clear" class="danger">🗑️ Vider l'historique</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container muted">
+    <p>Fait avec ❤️ — Données stockées en local (localStorage). Projet open-source.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
